@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Data Pelamar
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Data Pelamar</h1>
+    <h4>Hallo {{user}}</h4>
+    
+
+    <div class="table">        
+        <a href="#" class="btn btn-success mb-2">Tambah Info Lowongan</a>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Posisi</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal Lahir</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+            </thead>                        
+            <tbody>
+                {% for user in datauser %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{user.posisi}}</td>
+                    <td>{{user.nama_lengkap}}</td>
+                    <td>{{user.jenis_kelamin}}</td>
+                    <td>{{user.tanggal_lahir}}</td>
+                    <td class="text-center" >
+                        <a class="btn btn-danger" href="#">Delete</a>
+                        <!-- {% url 'loker:delete' user.id %}
+                        {% url 'loker:detail' user.id %} -->
+                        <!-- <a class="btn btn-warning" href="#">Update</a> -->
+                        <a class="btn btn-primary" href="#">Detail</a>
+                    </td>
+                </tr>                
+                {% endfor %}                
+            </tbody>
+        </table>
+    </div>
+    
+        
+{% endblock content %}
+    

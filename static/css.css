@@ -1,0 +1,16 @@
+.jumbotron{
+    background-image: url("/static/img/img3.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+#text-img{
+    margin-top: 100px;
+}
+body {
+    background-color: black;
+}
+footer{
+	min-height: 50px;
+	padding-top: 15px;
+}

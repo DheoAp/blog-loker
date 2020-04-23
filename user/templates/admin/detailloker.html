@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Detail Loker
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Detail</h1>
+    <table class="table">
+            
+        <tr>
+            <td>Tanggal Publish: {{detail_loker.publish|date}}</td>
+        </tr>
+        <tr>
+            <td><h3>{{detail_loker.posisi}}</h3></td>
+        </tr>
+        <tr>
+            <td><h4>{{detail_loker.syarat1}}</h4></td>
+        </tr> 
+        <tr>
+            <td><h4>{{detail_loker.syarat2}}</h4></td>
+        </tr>
+        <tr>
+            <td><h4>{{detail_loker.deskripsi}}</h4></td>
+        </tr>
+        <tr>
+            <td>{{detail_loker.benefit}}</td>
+        </tr>
+        <tr>
+            <td>{{detail_loker.kontak}}</td>
+        </tr>
+              
+    </table>
+    <a href="{% url 'user:login'%}" class="btn btn-success">Kembali</a>  
+{% endblock content %}
+    

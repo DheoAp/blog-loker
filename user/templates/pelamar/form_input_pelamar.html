@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Input Identitas
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Form input pelamar</h1>
+    <div class="container mb-5">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{form.nama_lengkap.id_for_label}}">{{form.nama_lengkap.label}}:</label>
+                <input type="text" class="form-control" name="{{form.nama_lengkap.name}}" maxlength="{{form.nama_lengkap.max}}" required id="{{form.nama_lengkap.id_for_label}}">
+            </div>
+
+            <div class="form-group">
+                {{form.jenis_kelamin.label_tag}}                
+                {% for pk, choice in form.jenis_kelamin.field.widget.choices %}
+                <div class="custom-control custom-radio ml-3">
+                    <input class="custom-control-input" type="{{form.jenis_kelamin.field.widget.input_type}}" value="{{pk}}" id="id_{{form.jenis_kelamin.name}}_{{forloop.counter0}}" name="{{form.jenis_kelamin.name}}" >                    
+                    {% ifequal form.jenis_kelamin.data pk.0  %} 
+                        checked="checked"
+                    {% endifequal %}                        
+                    <label for="id_{{form.jenis_kelamin.name}}_{{ forloop.counter0 }}" class="custom-control-label">{{choice}}</label>
+
+                </div>                    
+                {% endfor %}                    
+            </div>
+
+            <div class="form-group">
+                <label for="{{form.tanggal_lahir.id_for_label}}">{{form.tanggal_lahir.label}}:</label>
+                <input type="date" class="form-control" name="{{form.tanggal_lahir.name}}" required id="{{form.tanggal_lahir.id_for_label}}">
+            </div>
+
+            <div class="form-group">
+                <label for="{{form.tempat_lahir.id_for_label}}">{{form.tempat_lahir.label}}:</label>
+                <input type="text" class="form-control" name="{{form.tempat_lahir.name}}" maxlength="{{form.tempat_lahir.max}}" required id="{{form.nama_lengkap.id_for_label}}">
+            </div>
+
+            <div class="form-group">
+                <label for="{{form.alamat.id_for_label}}">{{form.alamat.label}}:</label>
+                <textarea type="text" class="form-control" name="{{form.alamat.name}}" rows="10" maxlength="{{form.alamat.max}}" required id="{{form.nama_lengkap.id_for_label}}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="{{form.no_tlp.id_for_label}}">{{form.no_tlp.label}}:</label>
+                <input type="number" class="form-control" name="{{form.no_tlp.name}}" maxlength="{{form.no_tlp.max}}" required id="{{form.no_tlp.id_for_label}}">
+            </div>
+
+            <div class="form-group">
+                <label for="{{form.email.id_for_label}}">{{form.email.label}}:</label>
+                <input type="email" class="form-control" name="{{form.email.name}}" maxlength="{{form.email.max}}" required id="{{form.email.id_for_label}}">
+            </div>
+
+            <div class="form-group">
+                {{form.posisi.label_tag}}                
+                {% for pk, choice in form.posisi.field.widget.choices %}
+                <div class="custom-control custom-radio ml-3">
+                    <input class="custom-control-input" type="{{form.posisi.field.widget.input_type}}" value="{{pk}}" id="id_{{form.posisi.name}}_{{forloop.counter0}}" name="{{form.posisi.name}}" >                    
+                    {% ifequal form.posisi.data pk.0  %} 
+                        checked="checked"
+                    {% endifequal %}                        
+                    <label for="id_{{form.posisi.name}}_{{ forloop.counter0 }}" class="custom-control-label">{{choice}}</label>
+
+                </div>                    
+                {% endfor %}                    
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Kirim</button>        
+        </form>
+    </div>
+    
+{% endblock content %}
+    

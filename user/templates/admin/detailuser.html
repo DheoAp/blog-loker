@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Detail
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Data Pelamar Kerja</h1>
+    <table class="table">
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>{{detail.nama_lengkap}}</td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>{{detail.jenis_kelamin}}</td>
+        </tr>
+        <tr>
+            <td>Tempat, Tanggal Lahir</td>
+            <td>{{detail.tempat_lahir}}, {{detail.tanggal_lahir}}</td>
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td>{{detail.alamat}}</td>
+        </tr>
+        <tr>
+            <td>No Telepon</td>
+            <td>{{detail.no_tlp}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{detail.email}}</td>
+        </tr>        
+        <tr>
+            <td>Posisi</td>
+            <td>{{detail.posisi}}</td>
+        </tr>
+    </table>
+    
+    <a href="{% url 'user:login'%}" class="btn btn-success">Kembali</a>
+{% endblock content %}
+    

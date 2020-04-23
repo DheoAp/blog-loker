@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Konfrim
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Apakah anda yakin</h1>
+    <table class="table">
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>{{konfrim.nama_lengkap}}</td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>{{konfrim.jenis_kelamin}}</td>
+        </tr>
+        <tr>
+            <td>Tempat, Tanggal Lahir</td>
+            <td>{{konfrim.tempat_lahir}}, {{konfrim.tanggal_lahir}}</td>
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td>{{konfrim.alamat}}</td>
+        </tr>
+        <tr>
+            <td>No Telepon</td>
+            <td>{{konfrim.no_tlp}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{konfrim.email}}</td>
+        </tr>        
+        <tr>
+            <td>Posisi</td>
+            <td>{{konfrim.posisi}}</td>
+        </tr>
+    </table>
+    
+    <a href="{% url 'index' %}" class="btn btn-success">Simpan</a>
+    <a href="{% url 'user:update' konfrim.id %}" class="btn btn-danger">Edit</a> <!---Jika Iya maka data akan di update-->
+    <!-- konfirm.id ==> konfirm diambil dari context_object_name  -->
+{% endblock content %}
+    

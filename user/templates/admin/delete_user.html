@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Konfrim
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Apakah anda menghapus?</h1>
+    <table class="table">
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>{{object.nama_lengkap}}</td>
+        </tr>        
+        <tr>
+            <td>Posisi</td>
+            <td>{{object.posisi}}</td>
+        </tr>
+    </table>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">YA</button>
+        <a href="{% url 'user:login' %}" class="btn btn-primary">Tidak</a>
+    </form>
+    
+{% endblock content %}
+    

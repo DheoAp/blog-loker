@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Update
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Update Info</h1>
+    <div class="container p-3 mb-5">
+        <form method="POST" class="padding-25">
+          {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+
+                        <label for="{{form.posisi.id_for_label}}">{{form.posisi.label}}:</label>
+                        <input value="{{form.posisi.value}}" type="text" class="form-control form-control-lg col-11" name="{{form.posisi.name}}" maxlength="{{form.posisi.max}}" placeholder="Posisi" required id={{form.posisi.id_for_label}}>
+                        
+                      </div>
+                      <div class="form-group">
+                        <label for="{{form.persyaratan.id_for_label}}">Persyaratan</label>
+                        <input value="{{form.syarat1.value}}" type="text" class="form-control form-control-lg col-11 mb-2" name="{{form.syarat1.name}}" maxlength="{{form.syarat1.max}}" placeholder="Usia" required id={{form.syarat1.id_for_label}}>
+                        <input value="{{form.syarat2.value}}" type="text" class="form-control form-control-lg col-11 mb-2" name="{{form.syarat2.name}}" maxlength="{{form.syarat2.max}}" placeholder="Pendidikan" required id={{form.syarat2.id_for_label}}>
+                        <input value="{{form.syarat3.value}}" type="text" class="form-control form-control-lg col-11 mb-2" name="{{form.syarat3.name}}" maxlength="{{form.syarat3.max}}" placeholder="Kualifikasi Khusus" required id={{form.syarat3.id_for_label}}>
+                        <input value="{{form.syarat4.value}}" type="text" class="form-control form-control-lg col-11 mb-2" name="{{form.syarat4.name}}" maxlength="{{form.syarat4.max}}" placeholder="Kualifikasi Khusus" required id={{form.syarat4.id_for_label}}>
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="{{form.deskripsi.id_for_label}}">{{form.deskripsi.label}}:</label>
+                        <textarea name="{{form.deskripsi.name}}" required id="{{form.deskripsi.id_for_label}}" rows="10" class="form-control">{{form.deskripsi.value}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="{{form.benefit.id_for_label}}">{{form.benefit.label}}:</label>
+                      <textarea name="{{form.benefit.name}}" required id="{{form.benefit.id_for_label}}" rows="10" class="form-control">{{form.benefit.value}}</textarea>
+                    </div>
+                      <div class="form-group">
+                        <label for="{{form.kontak.id_for_label}}">{{form.kontak.label}}:</label>
+                        <textarea name="{{form.kontak.name}}" required id="{{form.kontak.id_for_label}}" rows="10" class="form-control">{{form.kontak.value}}</textarea>
+                      </div>
+                </div>
+            </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+              <a href="{% url 'user:login' %}" class="btn m-2 btn-danger">Batal</a>          
+              <button type="reset" class="btn btn-warning ml-5">Reset</button>            
+          </form>
+    </div> 
+{% endblock content %}
+    

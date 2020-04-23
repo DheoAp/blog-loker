@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Data Pelamar
+{% endblock page_title %}
+
+{% block content %}
+    <h4>Hallo {{user}}</h4>
+    <p>Admin melakukan login dulu</p>    
+    
+    <h1>Data Info Loker</h1>
+    <div class="table">        
+        <a href="{% url 'user:tambah_info' %}" class="btn btn-outline-success mb-2">Tambah Info Lowongan</a>
+        <a href="{% url 'user:login' %}" class="btn btn-outline-primary mb-2">Kembali</a>
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Posisi</th>
+                    <th>Usia</th>
+                    <th>Pendidikan</th>
+                    <th>Kualifikasi Khusus</th>
+                    <th>Tanggal Publish</th>
+                    <th class="text-center">Aksi</th>
+                </tr>
+            </thead>                        
+            <tbody>
+                {% for user in info %}
+                <tr>
+                    <th class="text-center" scope="row">{{forloop.counter}}</th>
+                    <td>{{user.posisi}}</td>
+                    <td>{{user.syarat1}}</td>
+                    <td>{{user.syarat2}}</td>
+                    <td>{{user.syarat3}}</td>
+                    <td>{{user.publish|date}}</td>
+                    <td class="text-center" >
+                        <a class="btn btn-danger" href="#">Delete</a>
+                        <a class="btn btn-warning" href="{% url 'user:Update' user.id %}">Update</a>
+                        <a class="btn btn-primary" href="{% url 'user:detail_loker' user.id %}">Detail</a>
+                    </td>
+                </tr>                
+                {% endfor %}                
+            </tbody>
+        </table>
+    </div>
+    
+        
+{% endblock content %}
+    

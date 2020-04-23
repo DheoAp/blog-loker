@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Info Loker
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Selamat Datang | Info Loker</h1>
+    
+        <table class="table">
+            
+            {% for info_loker in info %}
+            <tr>
+                <td>Tanggal Publish: {{info_loker.publish|date}}</td>
+            </tr>
+            <tr>
+                <td><h3>{{info_loker.posisi}}</h3></td>
+            </tr>
+            <tr>
+                <td><h4>{{info_loker.syarat1}}</h4></td>
+            </tr> 
+            <tr>
+                <td><h4>{{info_loker.syarat2}}</h4></td>
+            </tr>
+            <tr>
+                <td><h4>{{info_loker.deskripsi}}</h4></td>
+            </tr>
+            <tr>
+                <td>{{info_loker.benefit}}</td>
+            </tr>
+            <tr>
+                <td>{{info_loker.kontak}}</td>
+            </tr>
+            {% endfor %}
+                          
+        </table>
+
+        
+{% endblock content %}
+    
